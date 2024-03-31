@@ -6,7 +6,9 @@
   "scripts": {
     "tsNode": "cd src && ts-node index.ts",
     "start": "nodemon",
-    "transpilation": "tsc"
+    "transpilation": "tsc",
+    "buil:prod": "rimraf ./build && tsc",
+    "start:prod": "npm run build:prod && node build/index.js"
   },
   "keywords": [
     "typescript",
@@ -17,6 +19,7 @@
   "devDependencies": {
     "@types/node": "^20.11.30",
     "nodemon": "^3.1.0",
+    "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   }
