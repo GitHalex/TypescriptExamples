@@ -16,3 +16,12 @@ let edad = "30";
 console.log(typeof edad);
 const PI = 3.1416;
 console.log(PI);
+// Instanciacion multiple de variables
+let a, b, c;
+a = "Typescript";
+b = true;
+c = 8.9;
+// builtypes:  number, string boolean, void, null, undefined
+// tipos mas complejos
+let listaTareas = ["tarea 1", "tarea 2"];
+console.log(listaTareas);
