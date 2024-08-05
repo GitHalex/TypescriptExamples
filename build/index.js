@@ -25,3 +25,32 @@ c = 8.9;
 // tipos mas complejos
 let listaTareas = ["tarea 1", "tarea 2"];
 console.log(listaTareas);
+// combinacion de tipios en listas
+let valores = [false, "Hola", true, 56];
+// Enumerados
+var Estados;
+(function (Estados) {
+    Estados["Completado"] = "C";
+    Estados["Incompleto"] = "I";
+    Estados["Pendiente"] = "P";
+})(Estados || (Estados = {}));
+var PuestoCarrera;
+(function (PuestoCarrera) {
+    PuestoCarrera[PuestoCarrera["Primero"] = 1] = "Primero";
+    PuestoCarrera[PuestoCarrera["Segundo"] = 2] = "Segundo";
+    PuestoCarrera[PuestoCarrera["Tercero"] = 3] = "Tercero";
+})(PuestoCarrera || (PuestoCarrera = {}));
+let estadoTarea = Estados.Completado;
+let puestoMaraton = PuestoCarrera.Segundo;
+// podemos crear variables que sigan la interface Tarea
+let tarea1 = {
+    nombre: "Tarea 1",
+    estado: Estados.Pendiente,
+    urgencia: 20,
+};
+console.log(`Tarea: ${tarea1.nombre}`);
+let coche = {
+    nombre: "Audi",
+    precio: 45000,
+};
+console.log(`Coche: ${coche.nombre}`);

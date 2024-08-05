@@ -62,4 +62,16 @@ let tarea1: Tarea = {
   urgencia: 20,
 };
 
+console.log(`Tarea: ${tarea1.nombre}`);
+
 // Types de TypeScript
+type Producto = {
+  precio: number;
+  nombre: string;
+};
+
+let coche: Producto = {
+  nombre: "Audi",
+  precio: 45000,
+};
+console.log(`Coche: ${coche.nombre}`);
