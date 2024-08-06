@@ -52,5 +52,64 @@ console.log(`Tarea: ${tarea1.nombre}`);
 let coche = {
     nombre: "Audi",
     precio: 45000,
+    anio: 2009,
 };
 console.log(`Coche: ${coche.nombre}`);
+// CONDICIONALES
+// Operadores ternacios
+console.log(coche.anio < 2010
+    ? `Coche ${coche.nombre} es viejo`
+    : `Coche: ${coche.nombre} es nuevo`);
+// If - else
+/* if (error) {
+  console.log("Hay un error");
+  
+} else {
+  console.log("no hay un error");
+  
+} */
+// If -else if -else
+if (coche.anio < 2010) {
+    console.log(`coche: ${coche.nombre} es viejo`);
+}
+else if (coche.anio === 2010) {
+    console.log(`Coche: ${coche.nombre} es del 2010`);
+}
+else {
+    console.log(`Coche: ${coche.nombre} es nuevo`);
+}
+// Switch
+switch (tarea1.estado) {
+    case Estados.Completado:
+        console.log("La tarea esta completada");
+        break;
+    case Estados.Incompleto:
+        console.log("La tarea no esta completada");
+        break;
+    case Estados.Pendiente:
+        console.log("La tarea esta pendiente de comprobarse");
+        break;
+    default:
+        break;
+}
+// Bucles
+let listaTareasNueva = [
+    {
+        nombre: "Tarea 1",
+        estado: Estados.Completado,
+        urgencia: 2,
+    },
+    {
+        nombre: "Tarea 2",
+        estado: Estados.Pendiente,
+        urgencia: 1,
+    },
+    {
+        nombre: "Tarea 3",
+        estado: Estados.Incompleto,
+        urgencia: 3,
+    },
+];
+listaTareasNueva.forEach((tarea, index) => {
+    console.log(`${index} - ${tarea.nombre}`);
+});
