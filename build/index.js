@@ -1,26 +1,28 @@
 "use strict";
 // almacenamiento del nombre en la variable name
-let name = "Alex";
+/* let name: String = "Alex";
 console.log(name);
-let last_name = "Calcina";
+let last_name: String = "Calcina";
 console.log(last_name);
-let full_name = (name, last_name) => {
-    console.log(`${name} es mi nombre  y mi apellido es ${last_name}`);
+let full_name = (name: String, last_name: String) => {
+  console.log(`${name} es mi nombre  y mi apellido es ${last_name}`);
 };
-full_name(name, last_name);
+full_name(name, last_name); */
 // Declaracion de Variables
-let nombre = "Martin";
+/* let nombre: String = "Martin";
 console.log("Hola " + nombre);
 console.log(`Hola ${nombre}`);
-let edad = "30";
+
+let edad: String = "30";
 console.log(typeof edad);
-const PI = 3.1416;
-console.log(PI);
+
+const PI: number = 3.1416;
+console.log(PI); */
 // Instanciacion multiple de variables
-let a, b, c;
+/* let a: string, b: boolean, c: number;
 a = "Typescript";
 b = true;
-c = 8.9;
+c = 8.9; */
 // builtypes:  number, string boolean, void, null, undefined
 // tipos mas complejos
 let listaTareas = ["tarea 1", "tarea 2"];
@@ -110,6 +112,89 @@ let listaTareasNueva = [
         urgencia: 3,
     },
 ];
-listaTareasNueva.forEach((tarea, index) => {
-    console.log(`${index} - ${tarea.nombre}`);
+for (let index = 0; index < listaTareasNueva.length; index++) {
+    const tarea = listaTareasNueva[index];
+    console.log(`${index} - ${tarea.nombre} otro`);
+}
+/* listaTareasNueva.forEach((tarea: Tarea, index: number) => {
+  console.log(`${index} - ${tarea.nombre}`);
 });
+
+while (tarea1.estado !== Estados.Completado) {
+  if (tarea1.urgencia == 5) {
+    tarea1.estado = Estados.Completado;
+  } else {
+    tarea1.urgencia++;
+  }
+} */
+// FUNCIONES
+/**
+ *
+ * @param params Funcion que muestra un saludo
+ */
+function saludar() {
+    let nombre = "Alex";
+    console.log(`¡hola, ${nombre}`);
+}
+// invocacion de la funcion
+saludar();
+/**
+ * Funcion que muestra un saludo por consola a una persona
+ * @param nombre Nombre de la persona a saludar
+ */
+function saludarPersona(nombre) {
+    console.log(`¡hola, ${nombre}`);
+}
+saludarPersona("Alex");
+/**
+ * Funcion que muestra un saludo por consola a una persona
+ * @param nombre Nombre de la persona a despedir; por defecto sera "Pepe"
+ */
+function despedirPersona(nombre = "Pepe") {
+    console.log(`¡Adios, ${nombre}`);
+}
+despedirPersona();
+/**
+ *
+ * @param nombre (Opcional) Nombre de la persona
+ */
+function despedidaOpcional(nombre) {
+    if (nombre) {
+        console.log(`¡Adios, ${nombre}`);
+    }
+    else {
+        console.log("Adios");
+    }
+}
+despedidaOpcional(); //Adios
+function variosParams(nombre, apellidos, edad = 18) {
+    if (apellidos) {
+        console.log(`${nombre} ${apellidos} tiene ${edad} años`);
+    }
+    else {
+        console.log(`${nombre} tiene ${edad} años`);
+    }
+}
+variosParams("alex");
+variosParams("alex", "Lopez perez");
+variosParams("Alex", undefined, 30);
+function ejemploVariosTipos(a) {
+    if (typeof a === "string") {
+        console.log("A es un string");
+    }
+    else if (typeof a === "number") {
+        console.log("A es un number");
+    }
+    else {
+        console.log("A no es un string ni tampoco un number");
+        throw Error("A no es un string ni un number");
+    }
+}
+ejemploVariosTipos("Hola");
+ejemploVariosTipos(1);
+function ejemploReturn(nombre, apellido) {
+    return `${nombre} ${apellido}`;
+}
+const nombreCompleto = ejemploReturn("Alex", "Lopez");
+console.log(nombreCompleto);
+console.log(ejemploReturn("Alex", "Lopez"));
