@@ -25,8 +25,8 @@ b = true;
 c = 8.9; */
 // builtypes:  number, string boolean, void, null, undefined
 // tipos mas complejos
-let listaTareas = ["tarea 1", "tarea 2"];
-console.log(listaTareas);
+// let listaTareas: string[] = ["tarea 1", "tarea 2"];
+// console.log(listaTareas);
 // combinacion de tipios en listas
 let valores = [false, "Hola", true, 56];
 // Enumerados
@@ -192,9 +192,33 @@ function ejemploVariosTipos(a) {
 }
 ejemploVariosTipos("Hola");
 ejemploVariosTipos(1);
+/**
+ *
+ * @param nombre nombre de la persona
+ * @param apellido appelido de la person
+ * @returns nombre completo de la persona
+ */
 function ejemploReturn(nombre, apellido) {
     return `${nombre} ${apellido}`;
 }
 const nombreCompleto = ejemploReturn("Alex", "Lopez");
 console.log(nombreCompleto);
 console.log(ejemploReturn("Alex", "Lopez"));
+let empleadoAlex = {
+    nombre: "Alex",
+    apellidos: "Lopez",
+    edad: 30,
+};
+/* const mostrarEmpleado = (empleado: Empleado): string =>
+  `${empleado.nombre} tiedad ${empleado.edad} años`;
+
+console.log(mostrarEmpleado(empleadoAlex)); */
+const datosEmpleado = (empleado) => {
+    if (empleado.edad > 70) {
+        return `Empleado ${empleado.nombre} esta en edad de jubilicion`;
+    }
+    else {
+        return `Empleado ${empleado.nombre} esta en edad laboral`;
+    }
+};
+console.log(datosEmpleado(empleadoAlex));

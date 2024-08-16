@@ -8,6 +8,8 @@ let full_name = (name: String, last_name: String) => {
 };
 full_name(name, last_name); */
 
+import { error } from "console";
+
 // Declaracion de Variables
 /* let nombre: String = "Martin";
 console.log("Hola " + nombre);
@@ -28,8 +30,9 @@ c = 8.9; */
 // builtypes:  number, string boolean, void, null, undefined
 
 // tipos mas complejos
-let listaTareas: string[] = ["tarea 1", "tarea 2"];
-console.log(listaTareas);
+
+// let listaTareas: string[] = ["tarea 1", "tarea 2"];
+// console.log(listaTareas);
 
 // combinacion de tipios en listas
 let valores: (string | number | boolean)[] = [false, "Hola", true, 56];
@@ -226,6 +229,12 @@ function ejemploVariosTipos(a: string | number) {
 ejemploVariosTipos("Hola");
 ejemploVariosTipos(1);
 
+/**
+ *
+ * @param nombre nombre de la persona
+ * @param apellido appelido de la person
+ * @returns nombre completo de la persona
+ */
 function ejemploReturn(nombre: string, apellido: string): string {
   return `${nombre} ${apellido}`;
 }
@@ -233,3 +242,86 @@ function ejemploReturn(nombre: string, apellido: string): string {
 const nombreCompleto = ejemploReturn("Alex", "Lopez");
 console.log(nombreCompleto);
 console.log(ejemploReturn("Alex", "Lopez"));
+
+/**
+ * Funcion que recibe multiples parametros
+ * @param nombres es una liusta de nombres de string
+ */
+/* function ejemploMultipleParams(...nombres: string[]) {
+  nombres.forEach((nombre) => {
+    console.log(nombre);
+  });
+}
+ejemploMultipleParams("Martin");
+ejemploMultipleParams("Martin", "Alex", "Pepe");
+
+const lista = ["Alberto", "Sandra"];
+ejemploMultipleParams(...lista);
+
+function ejemploParamLista(nombres: string[]): void {
+  nombres.forEach((nombre) => {
+    console.log(nombre);
+  });
+}
+
+ejemploParamLista(lista); */
+
+// Arrow functions
+type Empleado = {
+  nombre: string;
+  apellidos: string;
+  edad: number;
+};
+
+let empleadoAlex: Empleado = {
+  nombre: "Alex",
+  apellidos: "Lopez",
+  edad: 30,
+};
+
+/* const mostrarEmpleado = (empleado: Empleado): string =>
+  `${empleado.nombre} tiedad ${empleado.edad} años`;
+
+console.log(mostrarEmpleado(empleadoAlex)); */
+
+const datosEmpleado = (empleado: Empleado): string => {
+  if (empleado.edad > 70) {
+    return `Empleado ${empleado.nombre} esta en edad de jubilicion`;
+  } else {
+    return `Empleado ${empleado.nombre} esta en edad laboral`;
+  }
+};
+
+console.log(datosEmpleado(empleadoAlex));
+
+const obtenerSalario = (empleado: Empleado, cobrar: () => `Cobrar`) => {
+  if (empleado.edad > 70) {
+    return;
+  } else {
+    cobrar(); //callback a ejecutar
+  }
+};
+
+const cobrarSalario = () => {
+  console.log("Cobrar nomina de empleado");
+};
+
+// Async functions
+async function ejemploAsync(): Promise<string> {
+  await console.log(
+    "Tarea a completar antes de seguir con la secuencua de instrucciones"
+  );
+  console.log("Tarea completada");
+  return "Completado";
+}
+ejemploAsync()
+  .then((respuesta) => {
+    console.log("Respuesta", respuesta);
+  })
+  .catch(() => {
+    console.log(error);
+  })
+  .finally(() => "Todo ha terminado");
+
+// Generators
+function ejemploGenerator() {}
