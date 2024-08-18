@@ -8,6 +8,7 @@ let full_name = (name: String, last_name: String) => {
   console.log(`${name} es mi nombre  y mi apellido es ${last_name}`);
 };
 full_name(name, last_name); */
+Object.defineProperty(exports, "__esModule", { value: true });
 // Declaracion de Variables
 /* let nombre: String = "Martin";
 console.log("Hola " + nombre);
@@ -222,3 +223,85 @@ const datosEmpleado = (empleado) => {
     }
 };
 console.log(datosEmpleado(empleadoAlex));
+const obtenerSalario = (empleado, cobrar) => {
+    if (empleado.edad > 70) {
+        return;
+    }
+    else {
+        cobrar(); //callback a ejecutar
+    }
+};
+const cobrarSalario = () => {
+    console.log("Cobrar nomina de empleado");
+};
+// Async functions
+/* async function ejemploAsync(): Promise<string> {
+  await console.log(
+    "Tarea a completar antes de seguir con la secuencua de instrucciones"
+  );
+  console.log("Tarea completada");
+  return "Completado";
+}
+ejemploAsync()
+  .then((respuesta) => {
+    console.log("Respuesta", respuesta);
+  })
+  .catch(() => {
+    console.log(error);
+  })
+  .finally(() => "Todo ha terminado"); */
+/* // Generators
+function* ejemploGenerator() {
+  // yield --> para emitir valores
+  let index = 0;
+  while (index < 5) {
+    // Emitimos un valor incrementado
+    yield index++;
+  }
+}
+// guardamos la funcion generadora en una variable
+let generadora = ejemploGenerator();
+
+// Worker
+function* watcher(valor: number, maxIteraciones: number = 3) {
+  yield valor;
+
+  if (maxIteraciones > 0) {
+    yield* worker(valor);
+    yield* watcher(valor, maxIteraciones - 1);
+  }
+  yield valor + 10;
+}
+function* worker(valor: number) {
+  yield valor + 1;
+  yield valor + 2;
+  yield valor + 3;
+}
+// Accedemos a los valores emitidos
+console.log(generadora.next().value);
+console.log(generadora.next().value);
+console.log(generadora.next().value);
+console.log(generadora.next().value); */
+function* ejemploGenerator() {
+    let index = 0;
+    while (index < 5) {
+        yield index++;
+    }
+}
+function* watcher(valor, maxIteraciones = 3) {
+    yield valor;
+    for (let i = 0; i < maxIteraciones; i++) {
+        yield* worker(valor);
+    }
+    yield valor + 10;
+}
+function* worker(valor) {
+    yield valor + 1;
+    yield valor + 2;
+    yield valor + 3;
+}
+let generadora = ejemploGenerator();
+console.log(generadora.next().value);
+console.log(generadora.next().value);
+console.log(generadora.next().value);
+console.log(generadora.next().value);
