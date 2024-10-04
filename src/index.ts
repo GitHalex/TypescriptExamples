@@ -383,3 +383,84 @@ console.log(generadora.next().value);
 console.log(generadora.next().value);
 console.log(generadora.next().value);
 console.log(generadora.next().value);
+
+// Sobrecarga de funciones
+
+function mostrarError(error: string | number): void {
+  console.log("Ha habido un error: ", error);
+}
+
+// Persistencia de datos
+// 1. localStorage --> Almacena los datos en el navegador (no se eliminan automaticamente)
+// 2. SessionStorage --> La diferencia radica en la sesion de navegador. es Decipher, los datos se persisten en la sesion del navegador
+// 3. cookies --> tienen una fecha de caducidad y tambien tienen un ambito de URL
+
+// LocalStorage
+
+/* function guardarEnLocalStorage(): void {
+  AsyncLocalStorage.set("Nombre", "Martin");
+}
+
+function leer(): void {
+  let nombre = localStorage.get("Nombre");
+} */
+
+import {
+  deleteAllCookies,
+  deleteCookie,
+  getCookieValue,
+  setCookie,
+} from "cookies-utils";
+//  COOKIES
+
+const cookieOptions = {
+  name: "Usuario",
+  value: "Martin",
+  maxAge: 10 * 60,
+  expires: new Date(2099, 10, 1),
+  path: "/",
+};
+
+// Setaemos la Cookie
+setCookie(cookieOptions);
+
+// Leer una Cookie
+let cookieLeida = getCookieValue("usuario");
+
+//Eliminar
+deleteCookie("usuario");
+
+// Elimiar todas los cookies
+deleteAllCookies();
+
+class Curso {
+  nombre: string;
+  horas: number;
+  constructor(nombre: string, horas: number) {
+    this.nombre = nombre;
+    this.horas = horas;
+  }
+}
+
+class Estudiante {
+  // Propiedes de clase
+  nombre: string;
+  apellidos?: string;
+  cursos: Curso[];
+
+  constructor(nombre: string, cursos: Curso[], apellidos?: string) {
+    //inicialisamos las propiededades
+    this.nombre = nombre;
+    if (apellidos) {
+      this.apellidos = apellidos;
+    }
+    this.cursos = cursos;
+  }
+}
+
+// Creamos un curso
+
+const cursoTS = new Curso("TypeScript", 15);
+const cursoJS = new Curso("JavaScript", 15);
+
+const listaCursos;
